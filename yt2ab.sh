@@ -42,10 +42,10 @@ function check_dependencies {
 function display_help {
   script_name=`basename "$0"`
   echo "Usage  : $script_name -u <youtube-url>                -s [audio-speed] -q [audio-quality] -v(erbose)"
-  echo "Example: $script_name -u https://youtu.be/9D0bGia4QrI"
-  echo "Example: $script_name -u https://youtu.be/9D0bGia4QrI -s 1.5"
-  echo "Example: $script_name -u https://youtu.be/9D0bGia4QrI -s 1.5           -q 3"
-  echo "Example: $script_name -u https://youtu.be/9D0bGia4QrI -s 1.5           -q 3               -v"
+  echo "Example: $script_name -u https://youtu.be/WRbalzuvms4"
+  echo "Example: $script_name -u https://youtu.be/WRbalzuvms4 -s 1.5"
+  echo "Example: $script_name -u https://youtu.be/WRbalzuvms4 -s 1.5           -q 3"
+  echo "Example: $script_name -u https://youtu.be/WRbalzuvms4 -s 1.5           -q 3               -v"
   echo "Note: for audio quality see also column 'ffmpeg option' on <https://trac.ffmpeg.org/wiki/Encode/MP3>; defaults to 4"
 }
 

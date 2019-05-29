@@ -28,9 +28,9 @@ The stand-alone Bash script `yt2ab.sh` is located in the root folder.
 
 At minimum, the Bash script `yt2ab.sh` requires a YouTube URL to be passed in via the `-u` parameter.
 
-The YouTube link [https://youtu.be/9D0bGia4QrI](https://youtu.be/9D0bGia4QrI) can be converted into an audiobook via
+The YouTube link [https://youtu.be/WRbalzuvms4](https://youtu.be/WRbalzuvms4) can be converted into an audiobook via
 ```
-./yt2ab.sh -u https://youtu.be/9D0bGia4QrI
+./yt2ab.sh -u https://youtu.be/WRbalzuvms4
 ```
 Depending on the size of the audio section in the given YouTube link, your connection speed, and the audio conversion speed, it may take several minutes before the Bash script successfully completes.
 
@@ -41,10 +41,10 @@ Further options are available via additional CLI parameters.
 The full list of currently available parameters is
 ```
 Usage  : yt2ab.sh -u <youtube-url>                -s [audio-speed] -q [audio-quality] -v(erbose)
-Example: yt2ab.sh -u https://youtu.be/9D0bGia4QrI
-Example: yt2ab.sh -u https://youtu.be/9D0bGia4QrI -s 1.5
-Example: yt2ab.sh -u https://youtu.be/9D0bGia4QrI -s 1.5           -q 3
-Example: yt2ab.sh -u https://youtu.be/9D0bGia4QrI -s 1.5           -q 3               -v
+Example: yt2ab.sh -u https://youtu.be/WRbalzuvms4
+Example: yt2ab.sh -u https://youtu.be/WRbalzuvms4 -s 1.5
+Example: yt2ab.sh -u https://youtu.be/WRbalzuvms4 -s 1.5           -q 3
+Example: yt2ab.sh -u https://youtu.be/WRbalzuvms4 -s 1.5           -q 3               -v
 Note: for audio quality see also column 'ffmpeg option' on <https://trac.ffmpeg.org/wiki/Encode/MP3>; defaults to 4
 ```
 
