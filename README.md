@@ -2,7 +2,7 @@
 
 This repository contains a Bash script that downloads the audio section of a given YouTube link and converts it into an audiobook. The audiobook can then be used like any other Mp3 file.
 
-See [YouTube2AudioBook](https://www.how-hard-can-it.be/) for an end-to-end solution that also includes tranferring an audiobook to a phone and leveraging an app that keeps track of playback positions during app restarts and even system reboots.
+See ["Continuously Listen to YouTube Audiobooks on Your Phone"](https://www.how-hard-can-it.be/continuously-listen-to-youtube-audiobooks-on-your-phone/) for an end-to-end solution that also includes tranferring an audiobook to a phone and leveraging an app that keeps track of playback positions during app restarts and even system reboots.
 
 
 ## You Have
