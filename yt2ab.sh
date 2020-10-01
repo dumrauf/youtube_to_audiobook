@@ -16,6 +16,9 @@ set -e
 DEFAULT_AUDIO_SPEED=1
 # Set the default audio quality to 4; see <https://trac.ffmpeg.org/wiki/Encode/MP3> for details
 DEFAULT_AUDIO_QUALITY=4
+# Set the default random time (in seconds) to wait between successive downloads;
+# YouTube can quickly block IPs if they request too many downloads in a short span of time
+let RANDOM_WAIT_TIME=5*60
 
 
 
@@ -171,4 +174,13 @@ do
 	echo "Processing ${video_url}: '${title}'..."
 	download_and_convert_youtube_video "${video_url}"
 	echo "...done processing '${title}'!"
+	# Sleep random amount of seconds in case multiple videos are to be downloaded;
+	# see also <https://github.com/ytdl-org/youtube-dl/issues/22641> for details
+	if [ ${#video_jsons[@]} -gt 1 ]
+	then 
+		_sleep_time=$((RANDOM % RANDOM_WAIT_TIME + 1))
+		echo "Sleeping ${_sleep_time} seconds between successive requests..."
+		sleep ${_sleep_time}
+		echo "...done sleeping!"
+	fi
 done
