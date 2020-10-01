@@ -64,16 +64,30 @@ function download_and_convert_youtube_video () {
 	_url=$1
 	# Dynamic file name definitions
 	_youtube_filename=$(youtube-dl --get-filename "${_url}")
-	_cover="${_youtube_filename}".jpg
+	_cover_jpeg="${_youtube_filename}".jpg
+	_cover="${_cover_jpeg}"
+	_cover_webp="${_youtube_filename}".webp
 	_youtube_audio="${_youtube_filename}"-youtube-audio.mp3
 	_audiobook_filename="${_youtube_filename}.mp3"
 
 	# Ensure proper cleanup upon function return
-	trap 'rm -f "${_cover}"; rm -f "${_youtube_audio}"' RETURN
+	trap 'rm -f "${_cover_jpeg}"; rm -f "${_cover_webp}"; rm -f "${_youtube_audio}"' RETURN
 
 	# Download thumbnail and audio from given YouTube ${_url}
 	youtube-dl "${_url}" --write-thumbnail --skip-download -o "${_cover}"
 	youtube-dl "${_url}" -x --audio-format mp3 --audio-quality 0 -o "${_youtube_audio}"
+
+	# Handle special case of the cover not being in standard (read: expected) JPEG format
+	if [ ! -f "${_cover}" ]
+	then
+		if [ -f "${_cover_webp}" ]
+		then
+			_cover="${_cover_webp}"
+		else
+			echo "The downloaded cover is neither in JPEG nor in WebP format. Aborting..."
+			exit 1
+		fi
+	fi
 
 	# Convert audio to Mp3, including thumbnail for easier recognition
 	ffmpeg -i "${_youtube_audio}" -i "${_cover}" -map_metadata 0 -map 0 -map 1 -codec:a libmp3lame -qscale:a ${audio_quality} -filter:a "atempo=${audio_speed}" "${_audiobook_filename}"
