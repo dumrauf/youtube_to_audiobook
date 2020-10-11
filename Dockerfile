@@ -1,9 +1,12 @@
 FROM alpine:3.12.0
 
 # Add Git commit information
-ARG SOURCE_COMMIT=missing
+ARG SOURCE_COMMIT=undefined
 ENV SOURCE_COMMIT=${SOURCE_COMMIT}
 LABEL SourceCommit=${SOURCE_COMMIT}
+ARG SOURCE_BRANCH=undefined
+ENV SOURCE_BRANCH=${SOURCE_BRANCH}
+LABEL SourceBranch=${SOURCE_BRANCH}
 
 # Disable file system caching as described 
 # in <https://github.com/ytdl-org/youtube-dl#configuration>
