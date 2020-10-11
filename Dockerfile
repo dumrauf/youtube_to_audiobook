@@ -1,5 +1,10 @@
 FROM alpine:3.12.0
 
+# Add Git commit information
+ARG SOURCE_COMMIT=missing
+ENV SOURCE_COMMIT=${SOURCE_COMMIT}
+LABEL SourceCommit=${SOURCE_COMMIT}
+
 # Disable file system caching as described 
 # in <https://github.com/ytdl-org/youtube-dl#configuration>
 RUN echo -e '--no-cache-dir \n' >> /etc/youtube-dl.conf
