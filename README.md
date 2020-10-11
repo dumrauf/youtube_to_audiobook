@@ -11,6 +11,7 @@ Before you can use the Bash script in this repository out of the box, you need
 
  - [youtube-dl](https://youtube-dl.org/) which is a Python application that ships with a CLI and allows to download audio and video from YouTube
  - [FFmpeg](https://ffmpeg.org/) which is "a complete, cross-platform solution to record, convert and stream audio and video" (from [https://ffmpeg.org/](https://ffmpeg.org/)) and also ships with a CLI
+ - [`jq`](https://stedolan.github.io/jq/) which is a standalone, "lightweight and flexible command-line JSON processor" (from [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/))
 
 Most likely, you also have a YouTube link that you want to convert to an audiobook.
 
