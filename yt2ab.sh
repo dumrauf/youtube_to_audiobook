@@ -6,6 +6,9 @@ set +x
 # Stop on all errors
 set -e
 
+# Ensure proper exit on SIGINT and SIGTERM
+trap "exit 0" SIGINT SIGTERM
+
 
 ###############################################################################
 #                             Default Arguments                               #
